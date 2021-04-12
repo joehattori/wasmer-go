@@ -1,4 +1,4 @@
-module github.com/wasmerio/wasmer-go
+module github.com/joehattori/wasmer-go
 
 go 1.14
 
