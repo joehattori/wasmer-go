@@ -1,0 +1,8 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "linux-aarch64",
+    srcs = ["dummy.go"],
+    importpath = "github.com/joehattori/wasmer-go/wasmer/packaged/lib/linux-aarch64",
+    visibility = ["//visibility:public"],
+)

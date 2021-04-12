@@ -1,0 +1,15 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_test")
+
+go_test(
+    name = "examples_test",
+    srcs = [
+        "example_early_exit_test.go",
+        "example_errors_test.go",
+        "example_exports_function_test.go",
+        "example_exports_global_test.go",
+        "example_imports_exports_test.go",
+        "example_instance_test.go",
+        "example_memory_test.go",
+    ],
+    deps = ["@com_github_wasmerio_wasmer_go//wasmer:go_default_library"],
+)

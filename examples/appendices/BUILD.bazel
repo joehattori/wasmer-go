@@ -1,0 +1,15 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "appendices_lib",
+    srcs = ["simple.go"],
+    importpath = "github.com/joehattori/wasmer-go/examples/appendices",
+    visibility = ["//visibility:private"],
+    deps = ["@com_github_wasmerio_wasmer_go//wasmer:go_default_library"],
+)
+
+go_binary(
+    name = "appendices",
+    embed = [":appendices_lib"],
+    visibility = ["//visibility:public"],
+)

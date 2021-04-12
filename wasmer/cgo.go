@@ -14,6 +14,6 @@ import "C"
 
 // See https://github.com/golang/go/issues/26366.
 import (
-	_ "github.com/wasmerio/wasmer-go/wasmer/packaged/include"
-	_ "github.com/wasmerio/wasmer-go/wasmer/packaged/lib"
+	_ "github.com/joehattori/wasmer-go/wasmer/packaged/include"
+	_ "github.com/joehattori/wasmer-go/wasmer/packaged/lib"
 )
