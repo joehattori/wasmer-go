@@ -1,12 +1,9 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_library")
 
-go_library(
+cc_library(
     name = "include",
-    srcs = [
-        "dummy.go",
-        "wasm.h",
-        "wasmer_wasm.h",
-    ],
-    importpath = "github.com/joehattori/wasmer-go/wasmer/packaged/include",
+    srcs = [],
     visibility = ["//visibility:public"],
+    hdrs = glob(["include/**/*"]),
+    strip_include_prefix = "include",
 )

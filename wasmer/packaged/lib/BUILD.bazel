@@ -1,13 +1,11 @@
-load("@io_bazel_rules_go//go:def.bzl", "go_library")
-
-go_library(
+cc_library(
     name = "lib",
-    srcs = ["dummy.go"],
-    importpath = "github.com/joehattori/wasmer-go/wasmer/packaged/lib",
+    srcs = select({
+        "@io_bazel_rules_go//go/platform:darwin": ["darwin-amd64/libwasmer.dylib"],
+        "@io_bazel_rules_go//go/platform:linux": ["linux-amd64/libwasmer.so"],
+        "//conditions:default": ["UNSUPPORTED_PLATFORM"],
+    }),
     visibility = ["//visibility:public"],
-    deps = [
-        "//wasmer/packaged/lib/darwin-amd64",
-        "//wasmer/packaged/lib/linux-aarch64",
-        "//wasmer/packaged/lib/linux-amd64",
-    ],
+    hdrs = glob(["include/**/*"]),
+    strip_include_prefix = "include",
 )

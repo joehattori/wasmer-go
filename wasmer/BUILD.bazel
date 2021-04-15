@@ -62,7 +62,7 @@ go_library(
     copts = ["-Iwasmer/wasmer/packaged/include"],
     importpath = "github.com/joehattori/wasmer-go/wasmer",
     visibility = ["//visibility:public"],
-    deps = [
+    cdeps = [
         "//wasmer/packaged/include",
         "//wasmer/packaged/lib",
     ],
