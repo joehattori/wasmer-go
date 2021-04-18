@@ -62,10 +62,19 @@ go_library(
     copts = ["-Iwasmer/wasmer/packaged/include"],
     importpath = "github.com/joehattori/wasmer-go/wasmer",
     visibility = ["//visibility:public"],
-    cdeps = [
-        "//wasmer/packaged/include",
-        "//wasmer/packaged/lib",
-    ],
+    cdeps = ["lib"],
+)
+
+cc_library(
+    name = "lib",
+    srcs = select({
+        "@io_bazel_rules_go//go/platform:darwin": ["packaged/lib/darwin-amd64/libwasmer.dylib"],
+        "@io_bazel_rules_go//go/platform:linux": ["packaged/lib/linux-amd64/libwasmer.so"],
+        "//conditions:default": ["UNSUPPORTED_PLATFORM"],
+    }),
+    visibility = ["//visibility:public"],
+    hdrs = glob(["packaged/include/**/*"]),
+    strip_include_prefix = "packaged/include",
 )
 
 go_test(
