@@ -1,5 +1,10 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_library")
 
+exports_files([
+    "wasm.h",
+    "wasmer_wasm.h",
+])
+
 go_library(
     name = "include",
     srcs = [

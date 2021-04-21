@@ -1,5 +1,7 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_library")
 
+exports_files(["libwasmer.dylib"])
+
 go_library(
     name = "darwin-amd64",
     srcs = ["dummy.go"],
